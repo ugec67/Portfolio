@@ -1,0 +1,19 @@
+/* src/index.css */
+
+/* Import Tailwind's base, components, and utilities styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add any other global styles here */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Font family is already linked in index.html for simplicity in this environment */
+}
+
+/* Optional: Scroll behavior for smooth transitions when navigating to sections */
+html {
+  scroll-behavior: smooth;
+}
