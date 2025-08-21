@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts - You can link a font here from a service like Google Fonts */
+/* For example, for 'Inter': */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Additional custom styles and animations */
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Animations for glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(5px, -5px); }
+  60% { transform: translate(-5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.glitch-text {
+  position: relative;
+  color: white;
+  text-shadow: -2px -2px 0px #ff00c1, 2px 2px 0px #00ffff;
+}
+
+.glitch-layer {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.glitch-text.glitch-active::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 2px 0px #ff00c1;
+  animation: glitch 0.5s infinite linear alternate-reverse;
+  clip-path: inset(60% 0 20% 0);
+  opacity: 0.8;
+}
+
+.glitch-text.glitch-active::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px -2px 0px #00ffff;
+  animation: glitch 0.5s infinite linear alternate-reverse;
+  clip-path: inset(20% 0 60% 0);
+  opacity: 0.8;
+}
+
+.dots-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
